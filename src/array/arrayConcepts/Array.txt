@@ -1,0 +1,56 @@
+Array:
+- Array is a collection of elements of same datatype that are stored in a contiguous memory locations.
+-
+
+Memory Representation of an Array:
+
+
+Declaration of an array:
+Declaring and Allocating memory (or initializing an array with a fixed size).
+Syntax:
+    dataType[] arrayName = new dataType[size];
+Example:
+    int[] numbers = new int[5];
+    This creates an array of 5 integers, each initialized to 0 by default.
+
+Initialization of an Array:
+Declaring and initializing an array with values(directly initializing).
+Syntax:
+    dataType[] arrayName = {value1, value2, ..., valueN};
+Example:
+    int[] numbers = {1, 2, 3, 4, 5};
+Note:
+    The syntax `int[5] numbers = {1, 2, 3, 4, 5};` is **invalid** in Java.
+    You cannot specify the size inside the brackets when initializing with values directly.
+
+Initializing array using indexes:
+Syntax:
+    dataType[] arrayName = new dataType[size]; Declaring and allocating memory
+    arrayName[0] = value(depending upon the array dataType);
+
+Initializing array using for loop
+Syntax:
+    for(int index =0; index<array.length; index++){
+        array[index] = value (from user or using any logic);
+    }
+Types of an Array:
+- Array can be classified into different types:
+- On the basis of Size.
+- On the basis of Dimensions.
+1. On the basis of Size:
+    Static Array:
+    -
+    Dynamic Array:
+    -
+2. On the basis of Dimensions:
+    One-dimension (1-D) Array:
+    Multi-dimensions Array:
+    -
+    Two-dimension (2-D) Array:
+    Three-dimension (3-D) Array:
+
+Operations on an Array.
+1. Array Traversal:
+2. Insertion in an Array:
+3. Deletion in an Array:
+4. Searching in an Array:
