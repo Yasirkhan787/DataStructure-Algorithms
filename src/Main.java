@@ -1,4 +1,4 @@
-import arrayImplemenation.Array;
+import array.arrayImplementation.Array;
 
 import java.util.Scanner;
 
