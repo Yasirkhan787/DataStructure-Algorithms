@@ -24,6 +24,8 @@ public class Main {
                 break;
                 case 2:
                     System.exit(0);
+                default:
+                    System.out.println("Invalid option!");
             }
         }
     }

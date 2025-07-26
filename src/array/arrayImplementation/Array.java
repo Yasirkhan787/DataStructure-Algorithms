@@ -1,5 +1,6 @@
 package array.arrayImplementation;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Array {
@@ -41,13 +42,19 @@ public class Array {
                     deletion(array);
                     break;
                 case 4:
+                    searching(array);
+                    break;
+                case 7:
                     return;
+                default:
+                    System.out.println("Invalid option!");
             }
         }
     }
 
+    // 1. Traversing
     public void traverse(int[] array) {
-        //If the number of element in Array is zero then the following statement is execute
+        // If the number of element in Array is zero then the following statement is execute
         if (N == 0) {
             System.out.println("Array Is Empty");
             return;
@@ -64,11 +71,12 @@ public class Array {
                 break;
             case 3:
                 return;
+            default:
+                System.out.println("Invalid option!");
         }
 
     }
 
-    // 1. Traversing
     // Linear Traversing on an array
     public void linearTraverse(int[] array) {
 
@@ -97,7 +105,7 @@ public class Array {
             System.out.println("Array is full! insertion in not possible");
             return;
         }
-        //
+        // Input the position from user
         System.out.println("Enter the position where u want to insert element: ");
         K = sc.nextInt();
 
@@ -126,7 +134,7 @@ public class Array {
             System.out.println("Array is empty! Deletion in not possible...");
             return;
         }
-        //
+        // Input the position from user
         System.out.println("Enter the position where u want to delete element: ");
         K = sc.nextInt();
         // Checking the position is valid or not
@@ -141,6 +149,71 @@ public class Array {
         N--;
         System.out.println(item + " Is Sucessfuly Deleted...");
     }
+
+    // Searching in an Array
+    public void searching(int[] array){
+        // Check if array is empty
+        if (N == 0) {
+            System.out.println("Array Is Empty No searching Possible");
+            return;
+        }
+
+        // Menu for selecting search type
+        System.out.println("1. Sequential (Linear) search \n2. Binary Search \n3. Return");
+        int option = sc.nextInt();
+        switch (option) {
+            case 1: // Linear Search
+                System.out.println("1. Single Linear search \n2. Multi-Linear search \n3. Return");
+                int opt = sc.nextInt();
+                switch (opt) {
+                    case 1: // Single Linear Search
+                        singleLinearSearch(array);
+                        break;
+                    case 2: // Multi-Linear Search (find all occurrences)
+                        multiLinearSearch(array);
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        System.out.println("Invalid option!");
+                }
+                break;
+            case 2: // Binary Search
+                System.out.println("1. Single Binary Search \n2. Multi-Binary Search \n3. Return");
+                int op = sc.nextInt();
+                // NOTE: Binary Search only works on sorted arrays
+                Arrays.sort(array); // Sort the array before binary search
+                switch (op) {
+                    case 1: // Single Binary Search
+                        singleBinarySearch(array);
+                        break;
+                    case 2: // Multi-Binary Search (find all occurrences of a repeated number)
+                        multiBinarySearch(array);
+                        break;
+                    case 3:
+                        return;
+                    default:
+                        System.out.println("Invalid option!");
+                }
+                break;
+            case 3:
+                return;
+            default:
+                System.out.println("Invalid option!");
+        }
+    }
+
+    // Single Linear Search
+    public void singleLinearSearch(int[] array){}
+
+    // Multi-Linear Search
+    public void multiLinearSearch(int[] array){}
+
+    // Single Binary Search
+    public void singleBinarySearch(int[] array){}
+
+    // Multi-Binary Search
+    public void multiBinarySearch(int[] array){}
 }
 
 
