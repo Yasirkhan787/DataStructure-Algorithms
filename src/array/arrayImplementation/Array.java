@@ -158,6 +158,10 @@ public class Array {
             return;
         }
 
+        // Getting element to search in an array
+        System.out.println("Enter the element which u want to search: ");
+        item = sc.nextInt();
+
         // Menu for selecting search type
         System.out.println("1. Sequential (Linear) search \n2. Binary Search \n3. Return");
         int option = sc.nextInt();
@@ -167,10 +171,10 @@ public class Array {
                 int opt = sc.nextInt();
                 switch (opt) {
                     case 1: // Single Linear Search
-                        singleLinearSearch(array);
+                        singleLinearSearch(array, item);
                         break;
                     case 2: // Multi-Linear Search (find all occurrences)
-                        multiLinearSearch(array);
+                        multiLinearSearch(array, item);
                         break;
                     case 3:
                         return;
@@ -185,10 +189,10 @@ public class Array {
                 Arrays.sort(array); // Sort the array before binary search
                 switch (op) {
                     case 1: // Single Binary Search
-                        singleBinarySearch(array);
+                        singleBinarySearch(array, item);
                         break;
                     case 2: // Multi-Binary Search (find all occurrences of a repeated number)
-                        multiBinarySearch(array);
+                        multiBinarySearch(array, item);
                         break;
                     case 3:
                         return;
@@ -204,16 +208,93 @@ public class Array {
     }
 
     // Single Linear Search
-    public void singleLinearSearch(int[] array){}
+    public void singleLinearSearch(int[] array, int item){
+        for(int i = LB; i< N+LB; i++){
+            if( array[i] == item){
+                System.out.println(item + " found at index " + i);
+                return;
+            }
+        }
+        System.out.println("Not found...");
+    }
 
     // Multi-Linear Search
-    public void multiLinearSearch(int[] array){}
+    public void multiLinearSearch(int[] array, int item){
+        int count = 0;
+        for(int i = LB; i< N+LB; i++){
+            if( array[i] == item){
+                count++;
+            }
+        }
+        if(count == 0)
+        {
+            System.out.println(item + "Not Found");
+            return;
+        }
+        else
+        {
+            System.out.println(item + "Found " + count + " Times");
+        }
+    }
 
     // Single Binary Search
-    public void singleBinarySearch(int[] array){}
+    public void singleBinarySearch(int[] array, int item){
+        int low = LB;
+        int high = N+LB-1;
+        int mid;
+        while(low<=high){
+            mid = (low + high) / 2;
+            if (array[mid] == item ){
+                System.out.println(item +  "Found At " + mid +" Index");
+                return;
+            } else if (array[mid]<item) {
+                low = mid + 1;
+            } else{
+                high = mid - 1;
+            }
+            System.out.println(item + "Not Found");
+        }
+    }
 
     // Multi-Binary Search
-    public void multiBinarySearch(int[] array){}
+    public void multiBinarySearch(int[] array, int item){
+        int low = LB;
+        int high = N + LB - 1;
+        int mid;
+        int count = 0;
+        while (low <= high) {
+            mid = (low + high) / 2;
+
+            if (array[mid] == item) {
+                count++;  // Count the mid item itself
+
+                // Count to the left
+                int i = mid - 1;
+                while (i >= low && array[i] == item) {
+                    count++;
+                    i--;
+                }
+
+                // Count to the right
+                i = mid + 1;
+                while (i <= high && array[i] == item) {
+                    count++;
+                    i++;
+                }
+
+                System.out.println(item + " Found " + count + " Times");
+                return;
+            }
+            else if (array[mid] < item) {
+                low = mid + 1;
+            }
+            else {
+                high = mid - 1;
+            }
+        }
+        // Print this only once if not found
+        System.out.println(item + " Not Found");
+    }
 }
 
 
